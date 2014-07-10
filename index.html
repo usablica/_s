@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title> s by usablica</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1> s</h1>
+          <h2>_s: Pythonic array slicing in JavaScript</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/usablica/_s/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/usablica/_s/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/usablica/_s" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="_s" class="anchor" href="#_s"><span class="octicon octicon-link"></span></a>_s</h1>
+
+<blockquote>
+<p>Pythonic array slicing in JavaScript</p>
+</blockquote>
+
+<h2>
+<a name="hello-world" class="anchor" href="#hello-world"><span class="octicon octicon-link"></span></a>Hello world</h2>
+
+<div class="highlight highlight-javascript"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'0'</span><span class="p">);</span> <span class="c1">//returns [1]</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'-1'</span><span class="p">);</span> <span class="c1">//returns [6]</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'0:3'</span><span class="p">);</span> <span class="c1">//returns [1, 2, 3]</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">':'</span><span class="p">);</span> <span class="c1">//returns [1, 2, 3, 4, 5, 6]</span>
+</pre></div>
+
+<h2>
+<a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h2>
+
+<p>Downlaod latest stable version from <code>https://github.com/usablica/_s/releases</code> and include <code>_s.js</code> or <code>minified/_s.min.js</code> for web browser production use. </p>
+
+<p>Examples:</p>
+
+<p><strong>Web browsers</strong>:  </p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"_s.min.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p><strong>NodeJS</strong>:  </p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">require</span><span class="p">(</span><span class="s1">'_s.js'</span><span class="p">);</span>
+</pre></div>
+
+<p>That's it.</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>The general scheme for <code>_s</code> is:</p>
+
+<pre><code>from:to:step
+</code></pre>
+
+<p>All values can be both positive and negative.</p>
+
+<h3>
+<a name="get-a-single-value" class="anchor" href="#get-a-single-value"><span class="octicon octicon-link"></span></a>Get a single value</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'0'</span><span class="p">);</span> <span class="c1">//returns [1]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'-1'</span><span class="p">);</span> <span class="c1">//returns [6]</span>
+</pre></div>
+
+<h3>
+<a name="get-a-range-of-values" class="anchor" href="#get-a-range-of-values"><span class="octicon octicon-link"></span></a>Get a range of values</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'0:3'</span><span class="p">);</span> <span class="c1">//returns [1, 2, 3]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'-4:-1'</span><span class="p">);</span> <span class="c1">//returns [3, 4, 5]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">3</span> <span class="p">,</span><span class="mi">4</span> <span class="p">,</span><span class="mi">5</span> <span class="p">,</span><span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">':'</span><span class="p">);</span> <span class="c1">//returns [1, 2 ,3 ,4 ,5 ,6]. Makes a copy of original array</span>
+</pre></div>
+
+<h3>
+<a name="using-step-parameter" class="anchor" href="#using-step-parameter"><span class="octicon octicon-link"></span></a>Using step parameter</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'::1'</span><span class="p">);</span> <span class="c1">//returns [1,2,3,4,5,6]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'::2'</span><span class="p">);</span> <span class="c1">//returns [1, 3, 5]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'::-1'</span><span class="p">);</span> <span class="c1">//returns [6, 5, 4, 3, 2, 1]. Equels to array.reverse</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'0:4:2'</span><span class="p">);</span> <span class="c1">//returns [1, 3]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span><span class="nx">_s</span><span class="p">(</span><span class="s1">'0:4:3'</span><span class="p">);</span> <span class="c1">//returns [1, 4]</span>
+</pre></div>
+
+<p>Found something interesting? Please add it here :-)</p>
+
+<h2>
+<a name="compatible-environments" class="anchor" href="#compatible-environments"><span class="octicon octicon-link"></span></a>Compatible environments</h2>
+
+<h4>
+<a name="client-side" class="anchor" href="#client-side"><span class="octicon octicon-link"></span></a>Client-side:</h4>
+
+<ul>
+<li>All major browsers including mobile browsers</li>
+</ul><h4>
+<a name="service-side" class="anchor" href="#service-side"><span class="octicon octicon-link"></span></a>Service-side:</h4>
+
+<ul>
+<li>All server-side platforms including NodeJS.</li>
+</ul><h2>
+<a name="roadmap" class="anchor" href="#roadmap"><span class="octicon octicon-link"></span></a>Roadmap</h2>
+
+<ul>
+<li>Add <code>String</code> slicing</li>
+<li>Write unit tests</li>
+</ul><h2>
+<a name="release-history" class="anchor" href="#release-history"><span class="octicon octicon-link"></span></a>Release History</h2>
+
+<ul>
+<li>
+<strong>v0.1.0</strong> - 2014-06-10
+
+<ul>
+<li>Initial version</li>
+</ul>
+</li>
+</ul><h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p><strong>Afshin Mehrabani</strong></p>
+
+<ul>
+<li><a href="https://twitter.com/afshinmeh">Twitter</a></li>
+<li><a href="https://github.com/afshinm">Github</a></li>
+<li><a href="http://afshinm.name/">Personal page</a></li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<blockquote>
+<p>Copyright (C) 2014 Afshin Mehrabani (<a href="mailto:afshin.meh@gmail.com">afshin.meh@gmail.com</a>)</p>
+</blockquote>
+
+<pre><code>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+</code></pre>
+        </section>
+
+        <footer>
+           s is maintained by <a href="https://github.com/usablica">usablica</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
