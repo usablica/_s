@@ -17,6 +17,7 @@ Array.prototype._s = function (expr) {
 
     //to keep status of negative parameters
     var reversed = false;
+    var stepOnly = false;
 
     //return empty array if given array is empty
     if (arr.length == 0) {
@@ -30,6 +31,7 @@ Array.prototype._s = function (expr) {
 
     //set default for both `from` and `to` if they are not defined
     if (isNaN(from) && isNaN(to)) {
+      stepOnly = true;
       from = 0;
       to = arr.length;
     }
@@ -39,8 +41,10 @@ Array.prototype._s = function (expr) {
       arr = arr.reverse();
       reversed = true;
 
-      //swap from and to
-      from = [to, to = from][0];
+      if (!stepOnly) {
+        //swap from and to
+        from = [to, to = from][0];
+      }
 
       to = Math.abs(to);
       //if `from` is not defined, we should set it to = `to` - 1
@@ -76,7 +80,7 @@ Array.prototype._s = function (expr) {
       alteredArray[alteredArray.length] = slicedArr[i];
     }
 
-    return reversed ? alteredArray.reverse() : alteredArray;
+    return reversed && !stepOnly ? alteredArray.reverse() : alteredArray;
   } else {
     throw Error('Bad expression for _s.')
   }
