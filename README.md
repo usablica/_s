@@ -35,6 +35,39 @@ require('_s.js');
 
 That's it.
 
+## How to use
+
+The general scheme for `_s` is:
+
+    from:to:step
+
+All values can be both positive and negative.
+
+### Get a single value
+
+```javascript
+[1, 2, 3, 4, 5, 6]._s('0'); //returns [1]
+[1, 2, 3, 4, 5, 6]._s('-1'); //returns [6]
+```
+
+### Get a range of values
+
+```javascript
+[1, 2, 3, 4, 5, 6]._s('0:3'); //returns [1, 2, 3]
+[1, 2, 3, 4, 5, 6]._s('-4:-1'); //returns [3, 4, 5]
+[1, 2 ,3 ,4 ,5 ,6]._s('0:3'); //returns [1, 2, 3]
+```
+
+# Using step parameter
+
+
+```javascript
+[1, 2, 3, 4, 5, 6]._s('::1'); //returns [1,2,3,4,5,6]
+[1, 2, 3, 4, 5, 6]._s('::2'); //returns [1, 3, 5]
+[1, 2, 3, 4, 5, 6]._s('::-1'); //returns [6, 5, 4, 3, 2, 1]. Equels to array.reverse
+```
+
+
 ## Compatible environments
 #### Client-side:
   - All major browsers including mobile browsers
