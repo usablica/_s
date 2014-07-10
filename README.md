@@ -17,7 +17,15 @@ _s
 
 ## How to install
 
-Downlaod latest stable version from `https://github.com/usablica/_s/releases` and include `_s.js` or `minified/_s.min.js` for web browser production use. 
+1. **NPM**
+
+    `npm install underscore-s`
+
+2. **Bower**
+
+    `bower install _s`
+
+3. Or download latest stable version from `https://github.com/usablica/_s/releases` and include `_s.js` or `minified/_s.min.js` for web browser production use. 
 
 Examples:
 
@@ -30,7 +38,7 @@ Examples:
 **NodeJS**:  
 
 ```javascript
-require('_s.js');
+require('underscore-s');
 ```
 
 That's it.
