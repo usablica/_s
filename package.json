@@ -1,5 +1,5 @@
 {
-    "name": "_s",
+    "name": "underscore-s",
     "description": "Pythonic array slicing in JavaScript",
     "version": "0.1.0",
     "author": "Afshin Mehrabani <afshin.meh@gmail.com>",
@@ -15,6 +15,6 @@
     ],
     "main": "_s.js",
     "spm": {
-        "main": "_s.js",
+        "main": "_s.js"
     }
 }
