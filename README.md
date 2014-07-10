@@ -15,6 +15,32 @@ _s
 [1,2,3,4,5,6]._s(':'); //returns [1, 2, 3, 4, 5, 6]
 ```
 
+## How to install
+
+Downlaod latest stable version from `https://github.com/usablica/_s/releases` and include `_s.js` or `minified/_s.min.js` for web browser production use. 
+
+Examples:
+
+**Web browsers**:  
+
+```html
+<script src="_s.min.js" type="text/javascript"></script>
+```
+
+**NodeJS**:  
+
+```javascript
+require('_s.js');
+```
+
+That's it.
+
+## Compatible environments
+#### Client-side:
+  - All major browsers including mobile browsers
+
+#### Service-side:
+  - All server-side platforms including NodeJS.
 
 ## Roadmap
 - Add `String` slicing
