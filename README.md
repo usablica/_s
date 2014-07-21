@@ -71,7 +71,7 @@ All values can be both positive and negative.
 ```javascript
 [1, 2, 3, 4, 5, 6]._s('::1'); //returns [1,2,3,4,5,6]
 [1, 2, 3, 4, 5, 6]._s('::2'); //returns [1, 3, 5]
-[1, 2, 3, 4, 5, 6]._s('::-1'); //returns [6, 5, 4, 3, 2, 1]. Equels to array.reverse
+[1, 2, 3, 4, 5, 6]._s('::-1'); //returns [6, 5, 4, 3, 2, 1]. Equal to array.reverse
 [1, 2, 3, 4, 5, 6]._s('0:4:2'); //returns [1, 3]
 [1, 2, 3, 4, 5, 6]._s('0:4:3'); //returns [1, 4]
 ```
