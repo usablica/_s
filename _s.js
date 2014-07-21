@@ -36,8 +36,16 @@ Array.prototype._s = function (expr) {
       to = arr.length;
     }
 
+    if (from < 0) {
+      from = arr.length + from;
+    }
+
+    if (to < 0) {
+      to = arr.length + to;
+    }
+
     //reverse the array if we have negative values
-    if (from < 0 || to < 0 || step < 0) {
+    if (step < 0) {
       arr = arr.reverse();
       reversed = true;
 
