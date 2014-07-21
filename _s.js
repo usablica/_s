@@ -27,9 +27,11 @@ Array.prototype._s = function (expr) {
 
     //set default for `from` if they are not defined
     if (isNaN(from)) {
+      // default value depends on reverse or not
       from = step < 0 ? arr.length : 0;
     }
 
+    //change `from` if we have negative `from`
     if (from < 0) {
       from = arr.length + from + 1;
     }
@@ -37,17 +39,20 @@ Array.prototype._s = function (expr) {
     //set default for `to` if they are not defined
     if (isNaN(to)) {
       if ( expr.indexOf(':') == -1 ) {
+        //means only one digital in expr
         to = from + 1;
       } else {
+        // default value depends on reverse or not
         to = step < 0 ? 0 : arr.length;
       }
     }
 
+    //change `to` if we have negative `to`
     if (to < 0) {
       to = arr.length + to + 1;
     }
 
-    //reverse the array if we have negative step
+    //reverse the array if we have negative `step`
     if (step < 0) {
       arr = arr.reverse();
 
