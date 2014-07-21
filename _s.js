@@ -15,10 +15,6 @@ Array.prototype._s = function (expr) {
     //clone the array
     var arr = this.slice(0);
 
-    //to keep status of negative parameters
-    var reversed = false;
-    var stepOnly = false;
-
     //return empty array if given array is empty
     if (arr.length == 0) {
       return [];
@@ -29,49 +25,36 @@ Array.prototype._s = function (expr) {
       return arr;
     }
 
-    //set default for both `from` and `to` if they are not defined
-    if (isNaN(from) && isNaN(to)) {
-      stepOnly = true;
-      from = 0;
-      to = arr.length;
+    //set default for `from` if they are not defined
+    if (isNaN(from)) {
+      from = step < 0 ? arr.length : 0;
     }
 
     if (from < 0) {
-      from = arr.length + from;
+      from = arr.length + from + 1;
+    }
+    
+    //set default for `to` if they are not defined
+    if (isNaN(to)) {
+      if ( expr.indexOf(':') == -1 ) {
+        to = from + 1;
+      } else {
+        to = step < 0 ? 0 : arr.length;
+      }
     }
 
     if (to < 0) {
-      to = arr.length + to;
+      to = arr.length + to + 1;
     }
 
-    //reverse the array if we have negative values
+    //reverse the array if we have negative step
     if (step < 0) {
       arr = arr.reverse();
-      reversed = true;
 
-      if (!stepOnly) {
-        //swap from and to
-        from = [to, to = from][0];
-      }
+      to = arr.length - to;
+      from = arr.length - from;
 
-      to = Math.abs(to);
-      //if `from` is not defined, we should set it to = `to` - 1
-      if (isNaN(from)) {
-        from = to - 1;
-      } else {
-        from = Math.abs(from);
-      }
       step = Math.abs(step);
-    }
-
-    //set default `from`
-    if (typeof (from) == 'undefined') {
-      from = 0;
-    }
-
-    //set default `to`
-    if (isNaN(to)) {
-      to = from + 1;
     }
 
     //slice the array with `from` and `to` variables
@@ -79,7 +62,7 @@ Array.prototype._s = function (expr) {
 
     //return sliced array if there is no `step` value
     if (isNaN(step)) {
-      return reversed ? slicedArr.reverse() : slicedArr;
+      return slicedArr;
     }
 
     var alteredArray = [];
@@ -88,7 +71,7 @@ Array.prototype._s = function (expr) {
       alteredArray[alteredArray.length] = slicedArr[i];
     }
 
-    return reversed && !stepOnly ? alteredArray.reverse() : alteredArray;
+    return alteredArray;
   } else {
     throw Error('Bad expression for _s.')
   }
