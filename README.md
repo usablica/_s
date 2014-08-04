@@ -38,7 +38,7 @@ Examples:
 **NodeJS**:  
 
 ```javascript
-_s = require('underscore-s');
+_s = require('underscore-s')._s;
 ```
 
 That's it.
