@@ -6,13 +6,13 @@ _s
 ## Hello world
 
 ```javascript
-[1,2,3,4,5,6]._s('0'); //returns [1]
+_s([1,2,3,4,5,6], '0'); //returns [1]
 
-[1,2,3,4,5,6]._s('-1'); //returns [6]
+_s([1,2,3,4,5,6], '-1'); //returns [6]
 
-[1,2,3,4,5,6]._s('0:3'); //returns [1, 2, 3]
+_s([1,2,3,4,5,6], '0:3'); //returns [1, 2, 3]
 
-[1,2,3,4,5,6]._s(':'); //returns [1, 2, 3, 4, 5, 6]
+_s([1,2,3,4,5,6], ':'); //returns [1, 2, 3, 4, 5, 6]
 ```
 
 ## How to install
@@ -38,7 +38,7 @@ Examples:
 **NodeJS**:  
 
 ```javascript
-require('underscore-s');
+_s = require('underscore-s');
 ```
 
 That's it.
@@ -54,26 +54,26 @@ All values can be both positive and negative.
 ### Get a single value
 
 ```javascript
-[1, 2, 3, 4, 5, 6]._s('0'); //returns [1]
-[1, 2, 3, 4, 5, 6]._s('-1'); //returns [6]
+_s([1, 2, 3, 4, 5, 6], '0'); //returns [1]
+_s([1, 2, 3, 4, 5, 6], '-1'); //returns [6]
 ```
 
 ### Get a range of values
 
 ```javascript
-[1, 2, 3, 4, 5, 6]._s('0:3'); //returns [1, 2, 3]
-[1, 2, 3, 4, 5, 6]._s('-4:-1'); //returns [3, 4, 5]
-[1, 2 ,3 ,4 ,5 ,6]._s(':'); //returns [1, 2 ,3 ,4 ,5 ,6]. Makes a copy of original array
+_s([1, 2, 3, 4, 5, 6], '0:3'); //returns [1, 2, 3]
+_s([1, 2, 3, 4, 5, 6], '-4:-1'); //returns [3, 4, 5]
+_s([1, 2 ,3 ,4 ,5 ,6], ':'); //returns [1, 2 ,3 ,4 ,5 ,6]. Makes a copy of original array
 ```
 
 ### Using step parameter
 
 ```javascript
-[1, 2, 3, 4, 5, 6]._s('::1'); //returns [1,2,3,4,5,6]
-[1, 2, 3, 4, 5, 6]._s('::2'); //returns [1, 3, 5]
-[1, 2, 3, 4, 5, 6]._s('::-1'); //returns [6, 5, 4, 3, 2, 1]. Equal to array.reverse
-[1, 2, 3, 4, 5, 6]._s('0:4:2'); //returns [1, 3]
-[1, 2, 3, 4, 5, 6]._s('0:4:3'); //returns [1, 4]
+_s([1, 2, 3, 4, 5, 6], '::1'); //returns [1,2,3,4,5,6]
+_s([1, 2, 3, 4, 5, 6], '::2'); //returns [1, 3, 5]
+_s([1, 2, 3, 4, 5, 6], '::-1'); //returns [6, 5, 4, 3, 2, 1]. Equal to array.reverse
+_s([1, 2, 3, 4, 5, 6], '0:4:2'); //returns [1, 3]
+_s([1, 2, 3, 4, 5, 6], '0:4:3'); //returns [1, 4]
 ```
 
 Found something interesting? Please add it here :-)
@@ -90,6 +90,10 @@ Found something interesting? Please add it here :-)
 - Write unit tests
 
 ## Release History
+
+ * **v0.2.0** - 2014-07-04
+   - Remove prototype + add AMD/CommonJS module structure
+
 
  * **v0.1.0** - 2014-06-10
    - Initial version
