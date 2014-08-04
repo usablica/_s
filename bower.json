@@ -1,6 +1,6 @@
 {
   "name": "_s",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Pythonic array slicing in JavaScript",
   "keywords": ["python", "splice", "slice", "array"],
   "homepage": "https://github.com/usablica/_s",
