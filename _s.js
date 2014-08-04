@@ -4,8 +4,23 @@
  * By Afshin Mehrabani (@afshinmeh)
  */
 
-Array.prototype._s = function (expr) {
-  var exprParts = expr.split(':');
+(function (root, factory) {
+  if (typeof exports === 'object') {
+    // CommonJS
+    factory(exports);
+  } else if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['exports'], factory);
+  } else {
+    // Browser globals
+    factory(root);
+  }
+} (this, function (exports) {
+  //Default config/variables
+  var VERSION = '0.2.0';
+
+  var _s = function (arr, expr) {
+    var exprParts = expr.split(':');
 
   if (exprParts.length > 0) {
     var from = parseInt(exprParts[0]);
@@ -13,7 +28,7 @@ Array.prototype._s = function (expr) {
     var step = parseInt(exprParts[2]);
 
     //clone the array
-    var arr = this.slice(0);
+    var arr = arr.slice(0);
 
     //return empty array if given array is empty
     if (arr.length == 0) {
@@ -35,7 +50,7 @@ Array.prototype._s = function (expr) {
     if (from < 0) {
       from = arr.length + from + 1;
     }
-    
+
     //set default for `to` if they are not defined
     if (isNaN(to)) {
       if ( expr.indexOf(':') == -1 ) {
@@ -80,4 +95,15 @@ Array.prototype._s = function (expr) {
   } else {
     throw Error('Bad expression for _s.')
   }
-};
+  };
+
+  /**
+   * Current _s version
+   *
+   * @property version
+   * @type String
+   */
+  _s.version = VERSION;
+
+  return exports._s = _s;
+}));
