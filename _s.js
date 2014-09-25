@@ -20,6 +20,9 @@
   var VERSION = '0.2.0';
 
   var _s = function (arr, expr) {
+    var isStr = /string/.test(Object.prototype.toString.call(arr).toLowerCase());
+    arr = isStr ? Array.prototype.slice.call(arr) : arr;
+
     var exprParts = expr.split(':');
 
   if (exprParts.length > 0) {
@@ -82,7 +85,7 @@
 
     //return sliced array if there is no `step` value
     if (isNaN(step)) {
-      return slicedArr;
+      return isStr ? slicedArr.join('') : slicedArr;
     }
 
     var alteredArray = [];
@@ -91,7 +94,7 @@
       alteredArray[alteredArray.length] = slicedArr[i];
     }
 
-    return alteredArray;
+    return isStr ? alteredArray.join('') : alteredArray;
   } else {
     throw Error('Bad expression for _s.')
   }
