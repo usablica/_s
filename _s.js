@@ -20,6 +20,15 @@
   var VERSION = '0.2.0';
 
   var _s = function (arr, expr) {
+    var isStr = /string/.test(Object.prototype.toString.call(arr).toLowerCase());
+
+    var length = arr.length;
+
+    if (isStr) {
+      var str = Array.prototype.slice.call(arr);
+      length = str.length;
+    }
+
     var exprParts = expr.split(':');
 
   if (exprParts.length > 0) {
@@ -31,7 +40,7 @@
     var arr = arr.slice(0);
 
     //return empty array if given array is empty
-    if (arr.length == 0) {
+    if (length == 0) {
       return [];
     }
 
@@ -43,12 +52,12 @@
     //set default for `from` if they are not defined
     if (isNaN(from)) {
       // default value depends on reverse or not
-      from = step < 0 ? arr.length : 0;
+      from = step < 0 ? length : 0;
     }
 
     //change `from` if we have negative `from`
     if (from < 0) {
-      from = arr.length + from + 1;
+      from = length + from + 1;
     }
 
     //set default for `to` if they are not defined
@@ -58,27 +67,27 @@
         to = from + 1;
       } else {
         // default value depends on reverse or not
-        to = step < 0 ? 0 : arr.length;
+        to = step < 0 ? 0 : length;
       }
     }
 
     //change `to` if we have negative `to`
     if (to < 0) {
-      to = arr.length + to + 1;
+      to = length + to + 1;
     }
 
     //reverse the array if we have negative `step`
     if (step < 0) {
-      arr = arr.reverse();
+      isStr ? str = str.reverse() : arr = arr.reverse();
 
-      to = arr.length - to;
-      from = arr.length - from;
+      to = length - to;
+      from = length - from;
 
       step = Math.abs(step);
     }
 
     //slice the array with `from` and `to` variables
-    var slicedArr = arr.slice(from, to);
+    var slicedArr = isStr ? str.slice(from, to) : arr.slice(from, to);
 
     //return sliced array if there is no `step` value
     if (isNaN(step)) {

@@ -86,7 +86,6 @@ Found something interesting? Please add it here :-)
   - All server-side platforms including NodeJS.
 
 ## Roadmap
-- Add `String` slicing
 - Write unit tests
 
 ## Release History
